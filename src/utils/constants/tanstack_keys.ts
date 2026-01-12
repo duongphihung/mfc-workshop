@@ -1,0 +1,55 @@
+enum tanStackKeys {
+  PERMISSION_LIST_KEY = 'permissionList',
+  PERMISSION_INFO_KEY = 'permissionInfo',
+  CURRENT_USER_KEY = 'currentUser',
+  AREA_LIST_KEY = 'areaList',
+  AREA_DISABLE_KEY = 'areaDisable',
+  REPAIR_TOOLS_LIST_KEY = 'repairToolsList',
+  REPAIR_TOOLS_INFO_KEY = 'repairToolsInfo',
+  CATEGORY_REPAIR_TOOLS_LIST_KEY = 'categoryRepairToolsList',
+  CATEGORY_REPAIR_TOOLS_INFO_KEY = 'categoryReplacementPartsInfo',
+  CATEGORY_REPLACEMENT_PARTS_LIST_KEY = 'categoryReplacementPartsList',
+  REPLACEMENT_PARTS_LIST_KEY = 'replacementPartsList',
+  REPLACEMENT_PARTS_INFO_KEY = 'replacementPartsInfo',
+  AREA_DETAIL_KEY = 'areaDetail',
+  LIST_DEVICE_PROFILE_KEY = 'listDeviceProfile',
+  DEVICE_PROFILE_INFO_KEY = 'deviceProfileInfo',
+  DEVICE_CREDENTIALS_KEY = 'deviceCredentials',
+  LIST_DEVICE_KEY = 'listDevice',
+  DEVICE_INFO_KEY = 'deviceInfo',
+  LIST_VALUES_ATTRIBUTE_KEY = 'listValuesAttribute',
+  LIST_VALUES_ATTRIBUTE_KEY_NOT_REFRESH = 'listValuesAttributeNotRefresh',
+  LIST_VALUES_TELEMETRY_TIMESERIES_KEY = 'listValuesTelemetryTimeseries',
+  LIST_VALUES_TIMESERIES_KEY = 'listValuesTimeseries',
+  LIST_KEYS_TELEMETRY_TIMESERIES = 'listKeysTelemetryTimeseries',
+  USER_LIST_KEY = 'userList',
+  USER_DETAIL_KEY = 'userDetail',
+  EQUIPMENT_LIST_KEY = 'equipmentList',
+  EQUIPMENT_DETAIL_KEY = 'equipmentDetail',
+  EQUIPMENT_GROUP_LIST_KEY = 'equipmentGroupList',
+  EQUIPMENT_GROUP_DETAIL_KEY = 'equipmentGroupDetail',
+  ALARM_LIST_KEY = 'alarmList',
+  ALARM_LIST_KEY_5s = 'alarmList5s',
+  ALARM_DETAIL_KEY = 'alarmDetail',
+  MAINTENANCE_LIST_KEY = 'maintenanceList',
+  MAINTENANCE_INFO_KEY = 'maintenanceInfo',
+  MAINTENANCE_LABOR_LIST_KEY = 'maintenanceLaborList',
+  PROCEDURE_LIST_KEY = 'procedureList',
+  PROCEDURE_INFO_KEY = 'procedureInfo',
+  JOB_LIST_KEY = 'jobList',
+  RELATION_LIST_KEY = 'relationList',
+  COMPANY_KEY = 'companyList',
+
+  //report
+  REPORT_TEMPLATES = 'reportTemplates',
+  REPORT_VIEW = 'reportView',
+  REPORT_DOWNLOAD = 'reportDownload',
+
+  //tree
+  GET_TREE = 'getAssetTree',
+
+  //View
+  VIEW_DICTIONARY_KEY = 'viewDictionary',
+}
+
+export default tanStackKeys

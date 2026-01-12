@@ -1,0 +1,25 @@
+export const Dashboard_URL = 'api/dashboard/'
+export const Auth_url = '/api/auth'
+export const Asset_url = '/api/asset'
+export const Permission_url = '/api/permission'
+export const Area_url = '/api/area'
+export const RepairTools_url = '/api/repair_tools'
+export const Replacement_parts_url = '/api/replacement_parts'
+export const Device_url = '/api/device'
+export const Telemetry_url = '/api/plugins/telemetry'
+export const User_url = '/api/user'
+export const Equipment_url = '/api/equipment'
+export const Alarm_url = '/api/alarm'
+export const Company_url = '/api/company'
+export const Maintenance_url = '/api/maintenance'
+export const Procedure_url = '/api/maintenance/procedure'
+export const Relation_url = '/api/relation'
+
+export const Report_url = '/api/report'
+
+export const Tree_url = 'api/tree'
+
+export const View_url = '/api/views'
+
+export const Monitor_production_url = '/api/production'
+export const Monitor_energy_url = '/api/energy'

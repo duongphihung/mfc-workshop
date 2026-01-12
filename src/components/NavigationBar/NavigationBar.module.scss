@@ -1,0 +1,57 @@
+.header {
+    height: 56px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logoBox {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.logo {
+    width: 28px;
+    height: 28px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+}
+
+.userBox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border-radius: 8px;
+    background: #6b8f71;
+    color: #fff;
+    cursor: pointer;
+}
+
+.avatar {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.username {
+    font-size: 14px;
+    font-weight: 500;
+}
