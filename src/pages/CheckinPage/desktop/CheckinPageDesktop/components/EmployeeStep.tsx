@@ -2,11 +2,12 @@ import { Card, Image, Typography, message } from "antd";
 import { useState } from "react";
 import styles from "../CheckinPageDesktop.module.scss";
 import ScanInput from "@/components/ScanInput/ScanInput";
+import { useCheckinStore } from "@/utils/store/checkinStore";
 
 const { Text } = Typography;
 
 const MOCK_EMPLOYEES: Record<string, any> = {
-    NV001: {
+    8936017363505: {
         id: "NV001",
         name: "Nguyễn Văn A",
         position: "Công nhân",
@@ -14,25 +15,25 @@ const MOCK_EMPLOYEES: Record<string, any> = {
 };
 
 const EmployeeStep = () => {
-    const [employees, setEmployees] = useState<any[]>([]);
-    
-        const handleScanEmployee = (barcode: string) => {
-            const employee = MOCK_EMPLOYEES[barcode];
+    const { employees, addEmployee } = useCheckinStore();
 
-            if (!employee) {
-                message.error("Không tìm thấy nhân viên");
-                return;
-            }
+    const handleScanEmployee = (barcode: string) => {
+        const employee = MOCK_EMPLOYEES[barcode];
 
-            const isExist = employees.some((e) => e.id === barcode);
-            if (isExist) {
-                message.warning("Nhân viên đã được quét");
-                return;
-            }
+        if (!employee) {
+            message.error("Không tìm thấy nhân viên");
+            return;
+        }
 
-            setEmployees((prev) => [...prev, employee]);
-            message.success(`Đã thêm ${employee.name}`);
-        };
+        const isSuccess = addEmployee(employee);
+
+        if (!isSuccess) {
+            message.warning("Nhân viên đã được quét");
+            return;
+        }
+
+        message.success(`Đã thêm ${employee.name}`);
+    };
 
     return (
         <div className={styles.stepContent}>
@@ -46,11 +47,10 @@ const EmployeeStep = () => {
                 <div className={styles.listCommon}>
                     {employees.map((m) => (
                         <Card key={m.id} className={styles.machineCard}>
-                            <Image src={m.image} width={120} preview={false} />
                             <div>
                                 <Text strong>{m.name}</Text>
                                 <br />
-                                <Text type="secondary">{m.department}</Text>
+                                <Text type="secondary">{m.position}</Text>
                             </div>
                         </Card>
                     ))}

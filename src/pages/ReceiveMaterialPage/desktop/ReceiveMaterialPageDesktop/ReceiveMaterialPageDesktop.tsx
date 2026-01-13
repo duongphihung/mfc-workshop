@@ -20,7 +20,7 @@ const ReceiveMaterialPageDesktop = () => {
                     current={currentStep}
                     className={styles.steps}
                     items={[
-                        { title: "Quét Barcode Xuất thông tin sản xuất" },
+                        { title: "Kiểm tra & Xác nhận Vật liệu" },
                         { title: "Quét Barcode Nhân viên" },
                     ]}
                 />
@@ -52,7 +52,7 @@ const ReceiveMaterialPageDesktop = () => {
                         }
                     })}
                 >
-                    Tiếp theo
+                    {currentStep < 1 ? "Tiếp theo" : "Hoàn thành"}
                 </Button>
             </div>
         </div>

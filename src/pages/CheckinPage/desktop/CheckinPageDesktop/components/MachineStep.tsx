@@ -2,6 +2,7 @@ import { Card, Typography, Image, message } from "antd";
 import { useState } from "react";
 import styles from "../CheckinPageDesktop.module.scss";
 import ScanInput from "@/components/ScanInput/ScanInput";
+import { useCheckinStore } from "@/utils/store/checkinStore";
 
 const { Text } = Typography;
 
@@ -13,8 +14,8 @@ type MachineInfo = {
 };
 
 const MOCK_MACHINES: Record<string, MachineInfo> = {
-    "8938525350190": {
-        id: "8938525350190",
+    "8936017363505": {
+        id: "8936017363505",
         name: "Máy Ép Nhựa A01",
         department: "Xưởng Nhựa",
         image: "https://via.placeholder.com/120x80",
@@ -22,7 +23,7 @@ const MOCK_MACHINES: Record<string, MachineInfo> = {
 };
 
 const MachineStep = () => {
-    const [machines, setMachines] = useState<MachineInfo[]>([]);
+    const { machines, addMachine } = useCheckinStore();
 
     const handleScanMachine = (barcode: string) => {
         const machine = MOCK_MACHINES[barcode];
@@ -32,13 +33,13 @@ const MachineStep = () => {
             return;
         }
 
-        const isExist = machines.some((m) => m.id === barcode);
-        if (isExist) {
+        const isSuccess = addMachine(machine);
+
+        if (!isSuccess) {
             message.warning("Máy đã được quét");
             return;
         }
 
-        setMachines((prev) => [...prev, machine]);
         message.success(`Đã thêm ${machine.name}`);
     };
 

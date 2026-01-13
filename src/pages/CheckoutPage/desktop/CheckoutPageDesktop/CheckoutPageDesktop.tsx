@@ -56,7 +56,7 @@ const CheckoutPageDesktop = () => {
                         }
                     })}
                 >
-                    Tiếp theo
+                    {currentStep < 2 ? "Tiếp theo" : "Check-out"}
                 </Button>
             </div>
         </div>

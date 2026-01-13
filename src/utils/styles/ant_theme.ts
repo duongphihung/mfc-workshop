@@ -26,7 +26,8 @@ export const themes: ThemeConfig = {
     Table: {
       // headerBorderRadius: 4,
       borderRadiusOuter: 4,
-      headerBg: '#B5DCFF',
+      headerBg: '#1ec28b',
+      headerColor: '#fff',
       borderColor: '#f0f0f0',
       borderRadius: 4,
       borderRadiusLG: 4,
@@ -76,14 +77,12 @@ export const themes: ThemeConfig = {
       itemMarginBottom: 8,
       controlHeightLG: 36,
     },
-    Button: {
-      lineHeight: 2.2,
-      paddingContentVertical: 16,
-      paddingContentVerticalLG: 20,
-      paddingContentVerticalSM: 12,
-      paddingContentHorizontal: 16,
-      paddingContentHorizontalLG: 20,
-      paddingContentHorizontalSM: 12,
+    Steps: {
+      colorPrimary: '#1ec28b',
     },
+    Button: {
+      colorPrimary: '#1ec28b',
+      colorPrimaryHover: '#17a76f',
+    }
   },
 }

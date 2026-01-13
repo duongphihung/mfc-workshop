@@ -56,7 +56,7 @@ const CheckinPageDesktop = () => {
                         }
                     })}
                 >
-                    Tiếp theo
+                    {currentStep < 2 ? "Tiếp theo" : "Check-in"}
                 </Button>
             </div>
         </div>

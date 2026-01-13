@@ -1,12 +1,12 @@
-import { Card, Checkbox, Image, Typography, message } from "antd";
-import { useState } from "react";
+import { Card, Checkbox, Typography, message } from "antd";
 import styles from "../CheckoutPageDesktop.module.scss";
 import ScanInput from "@/components/ScanInput/ScanInput";
+import { useCheckoutStore } from "@/utils/store/checkoutStore";
 
 const { Text } = Typography;
 
 const MOCK_EMPLOYEES: Record<string, any> = {
-    NV001: {
+    8936017363505: {
         id: "NV001",
         name: "Nguyễn Văn A",
         position: "Công nhân",
@@ -14,7 +14,7 @@ const MOCK_EMPLOYEES: Record<string, any> = {
 };
 
 const CheckoutEmployeeStep = () => {
-    const [employees, setEmployees] = useState<any[]>([]);
+    const { employees, addEmployee } = useCheckoutStore();
 
     const handleScanEmployee = (barcode: string) => {
         const employee = MOCK_EMPLOYEES[barcode];
@@ -24,13 +24,13 @@ const CheckoutEmployeeStep = () => {
             return;
         }
 
-        const isExist = employees.some((e) => e.id === barcode);
-        if (isExist) {
+        const isSuccess = addEmployee(employee);
+
+        if (!isSuccess) {
             message.warning("Nhân viên đã được quét");
             return;
         }
 
-        setEmployees((prev) => [...prev, employee]);
         message.success(`Đã thêm ${employee.name}`);
     };
 
@@ -43,15 +43,15 @@ const CheckoutEmployeeStep = () => {
 
             <div className={styles.section}>
                 <div className={styles.titleCommon}>THÔNG TIN NHÂN VIÊN</div>
+
                 <div className={styles.listCommon}>
-                    {employees.map((m) => (
-                        <Checkbox>
-                            <Card key={m.id} className={styles.machineCard}>
-                                <Image src={m.image} width={120} preview={false} />
+                    {employees.map((e) => (
+                        <Checkbox key={e.id} checked>
+                            <Card className={styles.machineCard}>
                                 <div>
-                                    <Text strong>{m.name}</Text>
+                                    <Text strong>{e.name}</Text>
                                     <br />
-                                    <Text type="secondary">{m.department}</Text>
+                                    <Text type="secondary">{e.position}</Text>
                                 </div>
                             </Card>
                         </Checkbox>
@@ -60,6 +60,7 @@ const CheckoutEmployeeStep = () => {
             </div>
         </div>
     );
-}
+};
 
-export default CheckoutEmployeeStep
+export default CheckoutEmployeeStep;
+
