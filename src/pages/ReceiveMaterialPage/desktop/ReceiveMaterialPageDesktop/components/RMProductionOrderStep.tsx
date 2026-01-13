@@ -37,10 +37,6 @@ const RMProductionOrderStep = () => {
         <div className={styles.stepContent}>
             {/* ===== BỘ LỌC ===== */}
             <div className={styles.filterSection}>
-                <div className={styles.filterItem}>
-                    <div className={styles.filterLabel}>Thời gian</div>
-                    <DatePicker size="middle" style={{ width: "100%" }} />
-                </div>
 
                 <div className={styles.filterItem}>
                     <div className={styles.filterLabel}>Dự án</div>
