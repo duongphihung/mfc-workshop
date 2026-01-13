@@ -61,14 +61,12 @@
   gap: 16px;
 }
 
-/* mỗi filter */
 .filterItem {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* label */
 .filterLabel {
   font-weight: 600;
   font-size: 15px;
@@ -76,16 +74,12 @@
   white-space: nowrap;
 }
 
-/* ===== RESPONSIVE ===== */
-
-/* Laptop nhỏ (<= 1400px) → 2 cột */
 @media (max-width: 1400px) {
   .filterSection {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Tablet (<= 992px) → 1 cột */
 @media (max-width: 992px) {
   .filterSection {
     grid-template-columns: 1fr;
@@ -101,7 +95,6 @@
   }
 }
 
-/* Mobile (<= 576px) */
 @media (max-width: 576px) {
   .filterItem {
     flex-direction: column;
