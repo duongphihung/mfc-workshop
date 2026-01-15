@@ -52,7 +52,7 @@ const ScanInput = ({
                 }
             }}
             suffix={
-                <LuScanLine size={22}/>
+                <LuScanLine size={20}/>
             }
         />
     );

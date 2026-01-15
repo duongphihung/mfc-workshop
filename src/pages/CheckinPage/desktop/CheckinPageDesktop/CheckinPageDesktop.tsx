@@ -30,9 +30,16 @@ const CheckinPageDesktop = () => {
             </Card>
 
             {/* ===== STEP CONTENT ===== */}
-            {currentStep === 0 && <MachineStep />}
-            {currentStep === 1 && <EmployeeStep />}
-            {currentStep === 2 && <ComfirmProcessStep />}
+            <div
+                style={{
+                    height: "100%",
+                    overflow: "hidden",
+                }}
+            >
+                {currentStep === 0 && <MachineStep />}
+                {currentStep === 1 && <EmployeeStep />}
+                {currentStep === 2 && <ComfirmProcessStep />}
+            </div>
 
             {/* ===== FOOTER ===== */}
             <div className={styles.footer}>

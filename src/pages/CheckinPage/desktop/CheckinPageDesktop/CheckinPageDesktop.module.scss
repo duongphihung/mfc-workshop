@@ -1,38 +1,51 @@
 .wrapper {
-  height: calc(100% - 10px);
+  height: 100%;
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  overflow: auto;
 }
+
 
 .topCard {
   border-radius: 12px;
-  margin-bottom: 16px;
 }
 
 .steps {
   margin: 16px 0;
 }
 
+.stepContent {
+  flex: 1; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
 .section {
-  height: calc(100% - 88px);
-  margin-top: 16px;
+  flex: 1;
+  height: 100%;
+
 }
 
 .titleCommon {
   font-weight: 700;
   font-size: 16px;
-  margin-bottom: 12px;
 }
 
 .listCommon {
   height: 100%;
   background: #eaeaea;
-  padding: 12px;
+  padding: 10px;
   border-radius: 10px;
-  overflow-y: auto;
+  overflow: hidden;
+  
+  .listContent {
+    height: calc(100vh - 410px);
+    overflow-y: auto;
+  }
 }
 
 .machineCard {
@@ -48,12 +61,15 @@
   justify-content: flex-end;
 }
 
-.stepContent {
-  flex: 1;
-}
-
 //Step Process styles
 .inputProcess {
   width: 100%;
   height: 40px;
+}
+
+.titleHeader {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -1,7 +1,8 @@
-import { Card, Checkbox, Typography, message } from "antd";
+import { Button, Card, Checkbox, Typography, message } from "antd";
 import styles from "../CheckoutPageDesktop.module.scss";
 import ScanInput from "@/components/ScanInput/ScanInput";
 import { useCheckoutStore } from "@/utils/store/checkoutStore";
+import { useState } from "react";
 
 const { Text } = Typography;
 
@@ -15,6 +16,7 @@ const MOCK_EMPLOYEES: Record<string, any> = {
 
 const CheckoutEmployeeStep = () => {
     const { employees, addEmployee } = useCheckoutStore();
+    const [openScan, setOpenScan] = useState(false);
 
     const handleScanEmployee = (barcode: string) => {
         const employee = MOCK_EMPLOYEES[barcode];
@@ -36,10 +38,35 @@ const CheckoutEmployeeStep = () => {
 
     return (
         <div className={styles.stepContent}>
-            <ScanInput
-                placeholder="Quét barcode nhân viên..."
-                onScan={handleScanEmployee}
-            />
+            <div className={styles.headerSection}>
+                {
+                    openScan && (
+                        <ScanInput
+                            placeholder="Quét barcode nhân viên..."
+                            onScan={handleScanEmployee}
+                        />
+                    )
+                }
+                <Button
+                    type="primary"
+                    size="large"
+                    style={{
+                        background: "#FE9029"
+                    }}
+                >
+                    Đã chọn: {employees.length}
+                </Button>
+                <Button
+                    type="primary"
+                    size="large"
+                    style={{
+                        background: "#6870E3"
+                    }}
+                    onClick={() => setOpenScan((prev) => !prev)}
+                >
+                    {openScan ? "Đóng chức năng quét" : "Thêm nhân viên"}
+                </Button>
+            </div>
 
             <div className={styles.section}>
                 <div className={styles.titleCommon}>THÔNG TIN NHÂN VIÊN</div>

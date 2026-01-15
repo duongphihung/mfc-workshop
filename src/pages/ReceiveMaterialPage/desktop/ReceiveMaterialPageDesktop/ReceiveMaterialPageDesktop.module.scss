@@ -1,5 +1,5 @@
 .wrapper {
-  height: calc(100% - 10px);
+  height: 100%;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,6 @@
 
 .topCard {
   border-radius: 12px;
-  margin-bottom: 16px;
 }
 
 .steps {
@@ -55,6 +54,7 @@
 //Step RM Production Order styles
 .filterSection {
   width: 100%;
+  margin-top: 12px;
   margin-bottom: 16px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

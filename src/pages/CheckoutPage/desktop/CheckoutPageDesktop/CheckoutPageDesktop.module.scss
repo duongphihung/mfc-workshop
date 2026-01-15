@@ -1,5 +1,5 @@
 .wrapper {
-  height: calc(100% - 10px);
+  height: 100%;
   padding: 16px;
   display: flex;
   flex-direction: column;
@@ -9,11 +9,16 @@
 
 .topCard {
   border-radius: 12px;
-  margin-bottom: 16px;
 }
 
 .steps {
   margin: 16px 0;
+}
+
+.headerSection {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
 }
 
 .section {
