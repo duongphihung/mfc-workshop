@@ -41,20 +41,24 @@ const RMEmplyeeStep = () => {
             />
 
             <div className={styles.section}>
-                <div className={styles.titleCommon}>THÔNG TIN NHÂN VIÊN</div>
+                <div className={styles.titleHeader}>
+                    <div className={styles.titleCommon}>THÔNG TIN NHÂN VIÊN</div>
+                </div>
                 <div className={styles.listCommon}>
-                    {employees.map((m) => (
-                        <Checkbox>
-                            <Card key={m.id} className={styles.machineCard}>
-                                <Image src={m.image} width={120} preview={false} />
-                                <div>
-                                    <Text strong>{m.name}</Text>
-                                    <br />
-                                    <Text type="secondary">{m.department}</Text>
-                                </div>
-                            </Card>
-                        </Checkbox>
-                    ))}
+                    <div className={styles.listContent}>
+                        {employees.map((m) => (
+                            <Checkbox>
+                                <Card key={m.id} className={styles.machineCard}>
+                                    <Image src={m.image} width={120} preview={false} />
+                                    <div>
+                                        <Text strong>{m.name}</Text>
+                                        <br />
+                                        <Text type="secondary">{m.department}</Text>
+                                    </div>
+                                </Card>
+                            </Checkbox>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

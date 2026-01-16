@@ -80,17 +80,20 @@ const RMProductionOrderStep = () => {
 
             {/* ===== TABLE ===== */}
             <div className={styles.section}>
-                <div className={styles.titleCommon}>
-                    THÔNG TIN VẬT LIỆU YÊU CẦU
+                <div className={styles.titleHeader}>
+                    <div className={styles.titleCommon}>
+                        THÔNG TIN VẬT LIỆU YÊU CẦU
+                    </div>
                 </div>
-
                 <div className={styles.listCommon}>
-                    <Table
-                        rowKey="materialCode"
-                        dataSource={materials}
-                        columns={columns}
-                        pagination={false}
-                    />
+                    <div className={styles.listContent}>
+                        <Table
+                            rowKey="materialCode"
+                            dataSource={materials}
+                            columns={columns}
+                            pagination={false}
+                        />
+                    </div>
                 </div>
             </div>
         </div>
