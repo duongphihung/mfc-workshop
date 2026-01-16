@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "../CheckoutPageDesktop.module.scss";
-import { Input, InputNumber, Table } from "antd";
+import { Input, InputNumber, Select, Table } from "antd";
 import { render } from "sass";
 
 const CheckoutConfirmProcess = () => {
@@ -11,7 +11,16 @@ const CheckoutConfirmProcess = () => {
             product_name: "Sản phẩm A",
             quantity: 100,
             unit: "Cái",
-        }
+            staff: "Nguyễn Văn A",
+        },
+        {
+            id: "CP002",
+            name: "Công đoạn Ép nhựa",
+            product_name: "Sản phẩm B",
+            quantity: 200,
+            unit: "Cái",
+            staff: "Nguyễn Văn B",
+        },
     ]);
 
     const columns = [
@@ -41,7 +50,12 @@ const CheckoutConfirmProcess = () => {
             dataIndex: 'unit',
             key: 'unit',
         },
-        
+        {
+            title: 'Nhân viên',
+            dataIndex: 'staff',
+            key: 'staff',
+            render: (staff: string) => (<Select defaultValue={staff} />),
+        }
     ];
     return (
         <div className={styles.stepContent}>
@@ -50,14 +64,18 @@ const CheckoutConfirmProcess = () => {
                 placeholder="Tìm kiếm công đoạn..."
             />
             <div className={styles.section}>
-                <div className={styles.titleCommon}>DANH SÁCH CÔNG ĐOẠN</div>
+                <div className={styles.titleHeader}>
+                    <div className={styles.titleCommon}>DANH SÁCH CÔNG ĐOẠN</div>
+                </div>
                 <div className={styles.listCommon}>
-                    <Table
-                        dataSource={processes}
-                        columns={columns}
-                        rowKey="id"
-                        pagination={false}
-                    />
+                    <div className={styles.listContent}>
+                        <Table
+                            dataSource={processes}
+                            columns={columns}
+                            rowKey="id"
+                            pagination={false}
+                        />
+                    </div>
                 </div>
             </div>
         </div>

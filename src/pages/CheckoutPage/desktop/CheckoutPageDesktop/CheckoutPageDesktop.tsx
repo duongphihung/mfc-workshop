@@ -30,9 +30,16 @@ const CheckoutPageDesktop = () => {
             </Card>
 
             {/* ===== STEP CONTENT ===== */}
-            {currentStep === 0 && <CheckoutMachineStep />}
-            {currentStep === 1 && <CheckoutEmployeeStep />}
-            {currentStep === 2 && <CheckoutConfirmProcess />}
+            <div
+                style={{
+                    height: "100%",
+                    overflow: "hidden",
+                }}
+            >
+                {currentStep === 0 && <CheckoutMachineStep />}
+                {currentStep === 1 && <CheckoutEmployeeStep />}
+                {currentStep === 2 && <CheckoutConfirmProcess />}
+            </div>
 
             {/* ===== FOOTER ===== */}
             <div className={styles.footer}>

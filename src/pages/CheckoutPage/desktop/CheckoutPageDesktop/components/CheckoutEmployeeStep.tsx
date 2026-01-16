@@ -38,51 +38,53 @@ const CheckoutEmployeeStep = () => {
 
     return (
         <div className={styles.stepContent}>
-            <div className={styles.headerSection}>
-                {
-                    openScan && (
-                        <ScanInput
-                            placeholder="Quét barcode nhân viên..."
-                            onScan={handleScanEmployee}
-                        />
-                    )
-                }
-                <Button
-                    type="primary"
-                    size="large"
-                    style={{
-                        background: "#FE9029"
-                    }}
-                >
-                    Đã chọn: {employees.length}
-                </Button>
-                <Button
-                    type="primary"
-                    size="large"
-                    style={{
-                        background: "#6870E3"
-                    }}
-                    onClick={() => setOpenScan((prev) => !prev)}
-                >
-                    {openScan ? "Đóng chức năng quét" : "Thêm nhân viên"}
-                </Button>
-            </div>
-
+            {
+                openScan && (
+                    <ScanInput
+                        placeholder="Quét barcode nhân viên..."
+                        onScan={handleScanEmployee}
+                    />
+                )
+            }
             <div className={styles.section}>
-                <div className={styles.titleCommon}>THÔNG TIN NHÂN VIÊN</div>
-
+                <div className={styles.titleHeader}>
+                    <div className={styles.titleCommon}>THÔNG TIN NHÂN VIÊN</div>
+                    <div>
+                        <Button
+                            type="primary"
+                            size="middle"
+                            style={{
+                                background: "#FE9029"
+                            }}
+                        >
+                            Đã chọn: {employees.length}
+                        </Button>
+                        <Button
+                            type="primary"
+                            size="middle"
+                            style={{
+                                background: "#6870E3"
+                            }}
+                            onClick={() => setOpenScan((prev) => !prev)}
+                        >
+                            {openScan ? "Đóng chức năng quét" : "Thêm nhân viên"}
+                        </Button>
+                    </div>
+                </div>
                 <div className={styles.listCommon}>
-                    {employees.map((e) => (
-                        <Checkbox key={e.id} checked>
-                            <Card className={styles.machineCard}>
-                                <div>
-                                    <Text strong>{e.name}</Text>
-                                    <br />
-                                    <Text type="secondary">{e.position}</Text>
-                                </div>
-                            </Card>
-                        </Checkbox>
-                    ))}
+                    <div className={styles.listContent}>
+                        {employees.map((e) => (
+                            <Checkbox key={e.id} checked>
+                                <Card className={styles.machineCard}>
+                                    <div>
+                                        <Text strong>{e.name}</Text>
+                                        <br />
+                                        <Text type="secondary">{e.position}</Text>
+                                    </div>
+                                </Card>
+                            </Checkbox>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

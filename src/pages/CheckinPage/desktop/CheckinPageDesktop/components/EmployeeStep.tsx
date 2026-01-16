@@ -1,5 +1,4 @@
-import { Card, Image, Typography, message } from "antd";
-import { useState } from "react";
+import { Card, Typography, message } from "antd";
 import styles from "../CheckinPageDesktop.module.scss";
 import ScanInput from "@/components/ScanInput/ScanInput";
 import { useCheckinStore } from "@/utils/store/checkinStore";
@@ -43,17 +42,21 @@ const EmployeeStep = () => {
             />
 
             <div className={styles.section}>
-                <div className={styles.titleCommon}>THÔNG TIN NHÂN VIÊN</div>
+                <div className={styles.titleHeader}>
+                    <div className={styles.titleCommon}>THÔNG TIN NHÂN VIÊN</div>
+                </div>
                 <div className={styles.listCommon}>
-                    {employees.map((m) => (
-                        <Card key={m.id} className={styles.machineCard}>
-                            <div>
-                                <Text strong>{m.name}</Text>
-                                <br />
-                                <Text type="secondary">{m.position}</Text>
-                            </div>
-                        </Card>
-                    ))}
+                    <div className={styles.listContent}>
+                        {employees.map((m) => (
+                            <Card key={m.id} className={styles.machineCard}>
+                                <div>
+                                    <Text strong>{m.name}</Text>
+                                    <br />
+                                    <Text type="secondary">{m.position}</Text>
+                                </div>
+                            </Card>
+                        ))}
+                    </div> 
                 </div>
             </div>
         </div>

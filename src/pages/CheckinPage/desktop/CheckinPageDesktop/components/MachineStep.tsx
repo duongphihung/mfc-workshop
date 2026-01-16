@@ -51,19 +51,22 @@ const MachineStep = () => {
             />
 
             <div className={styles.section}>
-                <div className={styles.titleCommon}>THÔNG TIN MÁY</div>
-
+                <div className={styles.titleHeader}>
+                    <div className={styles.titleCommon}>THÔNG TIN MÁY</div>
+                </div>
                 <div className={styles.listCommon}>
-                    {machines.map((m) => (
-                        <Card key={m.id} className={styles.machineCard}>
-                            <Image src={m.image} width={120} preview={false} />
-                            <div>
-                                <Text strong>{m.name}</Text>
-                                <br />
-                                <Text type="secondary">{m.department}</Text>
-                            </div>
-                        </Card>
-                    ))}
+                    <div className={styles.listContent}>
+                        {machines.map((m) => (
+                            <Card key={m.id} className={styles.machineCard}>
+                                <Image src={m.image} width={120} preview={false} />
+                                <div>
+                                    <Text strong>{m.name}</Text>
+                                    <br />
+                                    <Text type="secondary">{m.department}</Text>
+                                </div>
+                            </Card>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

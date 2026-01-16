@@ -90,9 +90,7 @@ const ComfirmProcessStep = () => {
                     <Button>Đã chọn</Button>
                 </div>
                 <div className={styles.listCommon}>
-                    <div
-                        className={styles.listContent}
-                    >
+                    <div className={styles.listContent}>
                         <Table
                             rowSelection={{ type: selectionType, ...rowSelection }}
                             dataSource={processes}
