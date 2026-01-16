@@ -1,4 +1,4 @@
-import { Button, Card, Checkbox, Typography, message } from "antd";
+import { Button, Checkbox, Typography, message } from "antd";
 import styles from "../CheckoutPageDesktop.module.scss";
 import ScanInput from "@/components/ScanInput/ScanInput";
 import { useCheckoutStore } from "@/utils/store/checkoutStore";
@@ -7,9 +7,14 @@ import { useState } from "react";
 const { Text } = Typography;
 
 const MOCK_EMPLOYEES: Record<string, any> = {
-    8936017363505: {
+    "123": {
         id: "NV001",
         name: "Nguyễn Văn A",
+        position: "Công nhân",
+    },
+    "456": {
+        id: "NV002",
+        name: "Dương Văn Bi",
         position: "Công nhân",
     },
 };
@@ -49,7 +54,7 @@ const CheckoutEmployeeStep = () => {
             <div className={styles.section}>
                 <div className={styles.titleHeader}>
                     <div className={styles.titleCommon}>THÔNG TIN NHÂN VIÊN</div>
-                    <div>
+                    <div className={styles.titleAction}>
                         <Button
                             type="primary"
                             size="middle"
@@ -67,22 +72,27 @@ const CheckoutEmployeeStep = () => {
                             }}
                             onClick={() => setOpenScan((prev) => !prev)}
                         >
-                            {openScan ? "Đóng chức năng quét" : "Thêm nhân viên"}
+                            {openScan ? "Đóng" : "Thêm nhân viên"}
                         </Button>
                     </div>
                 </div>
                 <div className={styles.listCommon}>
                     <div className={styles.listContent}>
                         {employees.map((e) => (
-                            <Checkbox key={e.id} checked>
-                                <Card className={styles.machineCard}>
-                                    <div>
-                                        <Text strong>{e.name}</Text>
-                                        <br />
-                                        <Text type="secondary">{e.position}</Text>
+                            <div className={styles.listItem}>
+                                <Checkbox
+                                    key={e.id} checked
+                                    style={{ width: "100%" }}
+                                >
+                                    <div className={styles.machineCard}>
+                                        <div>
+                                            <Text strong>{e.name}</Text>
+                                            <br />
+                                            <Text type="secondary">{e.position}</Text>
+                                        </div>
                                     </div>
-                                </Card>
-                            </Checkbox>
+                                </Checkbox>
+                            </div>
                         ))}
                     </div>
                 </div>

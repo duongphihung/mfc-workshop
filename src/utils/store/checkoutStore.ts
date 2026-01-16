@@ -29,11 +29,9 @@ export const useCheckoutStore = create<MachineStore>((set, get) => ({
     },
     clearMachines: () => set({ machines: [] }),
 
-    employees: [{
-        id: "NV001",
-        name: "Nguyễn Văn A",
-        position: "Công nhân",
-    }],
+    employees: [
+        
+    ],
     addEmployee: (employee) => {
         const isExist = get().employees.some(
             (e) => e.id === employee.id

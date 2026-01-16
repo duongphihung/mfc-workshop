@@ -1,27 +1,42 @@
 import { useState } from "react";
 import styles from "../CheckoutPageDesktop.module.scss";
 import { Input, InputNumber, Select, Table } from "antd";
-import { render } from "sass";
 
 const CheckoutConfirmProcess = () => {
-    const [processes, setProcesses] = useState<any[]>([
-        {
-            id: "CP001",
-            name: "Công đoạn Ép nhựa",
-            product_name: "Sản phẩm A",
-            quantity: 100,
-            unit: "Cái",
-            staff: "Nguyễn Văn A",
-        },
-        {
-            id: "CP002",
-            name: "Công đoạn Ép nhựa",
-            product_name: "Sản phẩm B",
-            quantity: 200,
-            unit: "Cái",
-            staff: "Nguyễn Văn B",
-        },
-    ]);
+    const [processes, setProcesses] = useState<any[]>(() => {
+        const base = [
+            {
+                id: "CP001",
+                name: "Công đoạn Ép nhựa",
+                product_name: "Sản phẩm A",
+                quantity: 100,
+                unit: "Cái",
+                staff: "Nguyễn Văn A",
+            },
+            {
+                id: "CP002",
+                name: "Công đoạn Ép nhựa",
+                product_name: "Sản phẩm B",
+                quantity: 200,
+                unit: "Cái",
+                staff: "Nguyễn Văn B",
+            },
+        ];
+
+        for (let i = 0; i < 20; i++) {
+            base.push({
+                id: `CP00${i + 3}`,
+                name: "Công đoạn Ép nhựa",
+                product_name: `Sản phẩm ${i + 3}`,
+                quantity: 300,
+                unit: "Cái",
+                staff: "Nguyễn Văn C",
+            });
+        }
+
+        return base;
+    });
+
 
     const columns = [
         {

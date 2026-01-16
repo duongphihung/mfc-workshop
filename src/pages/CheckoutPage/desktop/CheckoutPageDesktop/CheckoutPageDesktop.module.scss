@@ -1,4 +1,4 @@
-.wrapper {
+ .wrapper {
   height: 100%;
   padding: 16px;
   display: flex;
@@ -35,24 +35,42 @@
   font-size: 16px;
 }
 
+.titleAction {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
 .listCommon {
-  height: 100%;
+  height: calc(100vh - 380px);
   background: #eaeaea;
   padding: 10px;
   border-radius: 10px;
   overflow: hidden;
   
   .listContent {
-    height: calc(100vh - 410px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+    height: 100%;
     overflow-y: auto;
+    align-content: start;
+  }
+}
+
+.listItem {
+  :global(.ant-checkbox-label) {
+    width: 100% !important;
   }
 }
 
 .machineCard {
-  width: 380px;
+  padding: 10px;
+  width: 100%;
   display: flex;
   gap: 12px;
-  margin-bottom: 8px;
+  border-radius: 10px;
+  background-color: #fff;
 }
 
 .footer {
@@ -72,4 +90,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 576px) {
+  .listCommon {
+    height: calc(100vh - 500px);
+    background: #eaeaea;
+    padding: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    
+    .listContent {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 10px;
+      height: 100%;
+      overflow-y: auto;
+      align-content: start;
+    }
+  }
 }

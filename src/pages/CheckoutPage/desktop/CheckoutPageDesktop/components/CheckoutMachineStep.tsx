@@ -12,6 +12,12 @@ const MOCK_MACHINES = {
         department: "Xưởng Nhựa",
         image: "https://via.placeholder.com/120x80",
     },
+    "8936017363506": {
+        id: "8936017363506",
+        name: "Máy Ép Nhựa A02",
+        department: "Xyyval Nhựa",
+        image: "https://via.placeholder.com/120x80",
+    },
 };
 
 const CheckoutMachineStep = () => {

@@ -35,15 +35,19 @@
 }
 
 .listCommon {
-  height: 100%;
+  height: calc(100vh - 380px);
   background: #eaeaea;
   padding: 10px;
   border-radius: 10px;
   overflow: hidden;
   
   .listContent {
-    height: calc(100vh - 410px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+    height: 100%;
     overflow-y: auto;
+    align-content: start;
   }
 }
 
@@ -59,6 +63,26 @@
   gap: 6px;
   justify-content: flex-end;
 }
+
+@media (max-width: 576px) {
+  .listCommon {
+    height: calc(100vh - 500px);
+    background: #eaeaea;
+    padding: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    
+    .listContent {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 10px;
+      height: 100%;
+      overflow-y: auto;
+      align-content: start;
+    }
+  }
+}
+
 
 //Step Process styles
 .inputProcess {
