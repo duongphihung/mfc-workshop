@@ -1,11 +1,12 @@
 import tanStackKeys from '@/utils/constants/tanstack_keys';
 // import routerUrlKeys from '@/utils/constants/routerUrlKeys'
-import { Account, ListParams, LoginResponse } from '@/utils/models'
 
 import { useMutation, useQuery } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 import { authApis } from '@/apis/authApis'
 import { openNotificationWithIcon } from '@/utils/ui/roleNotification';
+import { Account, LoginResponse } from '@/utils/models/auth';
+import { ListParams } from '@/utils/models/common';
 
 export const useGetCurrentUser = () => {
   return useQuery({
