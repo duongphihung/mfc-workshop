@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react'
-import { UserInfo } from '../models'
+import { UserInfo } from '../models/user'
 
 export const AuthContext = createContext<UserInfo | null>(null)
 

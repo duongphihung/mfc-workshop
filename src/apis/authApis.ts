@@ -1,6 +1,8 @@
 import axiosClient from '@/apis/axios-client'
-import { Account, ListParams, LoginResponse, UserInfo } from '@/utils/models';
 import { Auth_url } from './urlAPI';
+import { Account, LoginResponse } from '@/utils/models/auth';
+import { UserInfo } from '@/utils/models/user';
+import { ListParams } from '@/utils/models/common';
 
 export const authApis = {
   login(params: Account): Promise<LoginResponse> {

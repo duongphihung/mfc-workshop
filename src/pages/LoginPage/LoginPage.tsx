@@ -2,7 +2,7 @@ import { Button, Form, Input } from "antd";
 import styles from "./LoginPage.module.scss";
 import { power_plant } from "@/assets/images";
 import { useLogin } from "@/utils/hooks/tanstack-query/auth-query";
-import { Account } from "@/utils/models";
+import { Account } from "@/utils/models/auth";
 
 const LoginPage = () => {
     const [form] = Form.useForm();
