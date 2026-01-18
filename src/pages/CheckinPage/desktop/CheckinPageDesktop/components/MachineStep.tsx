@@ -14,8 +14,8 @@ type MachineInfo = {
 };
 
 const MOCK_MACHINES: Record<string, MachineInfo> = {
-    "8935206026306": {
-        id: "8935206026306",
+    "sn:6500a-512150636674": {
+        id: "sn:6500a-512150636674",
         name: "Máy Ép Nhựa A01",
         department: "Xưởng Nhựa",
         image: "https://via.placeholder.com/120x80",

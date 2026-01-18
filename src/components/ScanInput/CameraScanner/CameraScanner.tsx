@@ -1,4 +1,11 @@
-import Quagga from "@ericblade/quagga2";
+import {
+    BrowserMultiFormatReader,
+    IScannerControls,
+} from "@zxing/browser";
+import {
+    BarcodeFormat,
+    DecodeHintType,
+} from "@zxing/library";
 import { useEffect, useRef } from "react";
 import styles from "./CameraScanner.module.scss";
 
@@ -9,77 +16,56 @@ type Props = {
 };
 
 const CameraScanner = ({ open, onClose, onScanSuccess }: Props) => {
-    const ref = useRef<HTMLDivElement | null>(null);
+    const videoRef = useRef<HTMLVideoElement | null>(null);
+    const controlsRef = useRef<IScannerControls | null>(null);
+    const readerRef = useRef<BrowserMultiFormatReader | null>(null);
 
     useEffect(() => {
-        if (!open || !ref.current) return;
+        if (!open || !videoRef.current) return;
 
-        let lastCode = "";
-        let sameCount = 0;
+        const hints = new Map();
+        hints.set(DecodeHintType.POSSIBLE_FORMATS, [
+            BarcodeFormat.CODE_128,
+            BarcodeFormat.EAN_13,
+            BarcodeFormat.EAN_8,
+        ]);
 
-        Quagga.init(
-            {
-                inputStream: {
-                    type: "LiveStream",
-                    target: ref.current,
-                    constraints: {
+        const reader = new BrowserMultiFormatReader(hints, {
+            delayBetweenScanAttempts: 150,
+        });
+        readerRef.current = reader;
+
+        reader
+            .decodeFromConstraints(
+                {
+                    video: {
                         facingMode: "environment",
-                        width: { min: 1280 },
-                        height: { min: 720 },
-                    },
-                    area: {
-                        top: "45%",
-                        right: "10%",
-                        left: "10%",
-                        bottom: "25%",
+                        width: { ideal: 1280 },
+                        height: { ideal: 720 },
                     },
                 },
-                decoder: {
-                    readers: ["code_128_reader", "ean_reader", "ean_8_reader"],
-                    multiple: false,
-                },
-                locator: {
-                    halfSample: true,
-                },
-                locate: true,
-                numOfWorkers: navigator.hardwareConcurrency || 4,
-            },
-            (err) => {
-                if (err) {
-                    console.error(err);
-                    return;
+                videoRef.current,
+                (result) => {
+                    if (result) {
+                        onScanSuccess(result.getText());
+                        handleClose();
+                    }
                 }
-                Quagga.start();
-            }
-        );
-
-        const onDetected = (result: any) => {
-            const code = result?.codeResult?.code;
-            if (!code) return;
-
-            if (code === lastCode) {
-                sameCount++;
-            } else {
-                lastCode = code;
-                sameCount = 1;
-            }
-
-            if (sameCount >= 3) {
-                onScanSuccess(code);
-                handleClose();
-            }
-        };
-
-        Quagga.onDetected(onDetected);
+            )
+            .then((controls) => {
+                controlsRef.current = controls;
+            })
+            .catch(console.error);
 
         return () => {
-            Quagga.offDetected(onDetected);
-            Quagga.stop();
+            controlsRef.current?.stop(); // ✅ CÁCH ĐÚNG
+            controlsRef.current = null;
         };
     }, [open]);
 
     const handleClose = () => {
-        Quagga.stop();
+        controlsRef.current?.stop();
+        controlsRef.current = null;
         onClose();
     };
 
@@ -87,15 +73,15 @@ const CameraScanner = ({ open, onClose, onScanSuccess }: Props) => {
 
     return (
         <div className={styles.overlay}>
-            <div ref={ref} className={styles.camera} />
-
-            <div className={`${styles.mask} ${styles.maskTop}`} />
-            <div className={`${styles.mask} ${styles.maskBottom}`} />
-            <div className={`${styles.mask} ${styles.maskLeft}`} />
-            <div className={`${styles.mask} ${styles.maskRight}`} />
+            <video
+                ref={videoRef}
+                className={styles.camera}
+                muted
+                autoPlay
+                playsInline
+            />
 
             <div className={styles.frame}>
-                <div className={styles.frameBorder} />
                 <span className={`${styles.corner} ${styles.tl}`} />
                 <span className={`${styles.corner} ${styles.tr}`} />
                 <span className={`${styles.corner} ${styles.bl}`} />

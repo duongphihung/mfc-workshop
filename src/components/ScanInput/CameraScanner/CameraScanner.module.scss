@@ -23,45 +23,45 @@
 }
 
 
-/* Mask tối */
-.mask {
-    position: absolute;
-    background: rgba(0, 0, 0, 0.6);
-    pointer-events: none;
-}
+// /* Mask tối */
+// .mask {
+//     position: absolute;
+//     background: rgba(0, 0, 0, 0.6);
+//     pointer-events: none;
+// }
 
-.maskTop {
-    top: 0;
-    left: 0;
-    right: 0;
-    height: calc(50% - 5px);
-}
+// .maskTop {
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     height: calc(50% - 5px);
+// }
 
-.maskBottom {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: calc(50% - 150px);
-}
+// .maskBottom {
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     height: calc(50% - 150px);
+// }
 
-.maskLeft {
-    top: calc(50% - 5px);
-    bottom: calc(50% - 150px);
-    left: 0;
-    width: calc(50% - 150px);
-}
+// .maskLeft {
+//     top: calc(50% - 5px);
+//     bottom: calc(50% - 150px);
+//     left: 0;
+//     width: calc(50% - 150px);
+// }
 
-.maskRight {
-    top: calc(50% - 5px);
-    bottom: calc(50% - 150px);
-    right: 0;
-    width: calc(50% - 150px);
-}
+// .maskRight {
+//     top: calc(50% - 5px);
+//     bottom: calc(50% - 150px);
+//     right: 0;
+//     width: calc(50% - 150px);
+// }
 
 /* Khung scan */
 .frame {
     position: absolute;
-    top: 60%; // ⬅️ không phải 50%
+    top: 50%; // ⬅️ không phải 50%
     left: 50%;
     width: 80%;
     max-width: 340px;
