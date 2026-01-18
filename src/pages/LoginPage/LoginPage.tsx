@@ -3,15 +3,20 @@ import styles from "./LoginPage.module.scss";
 import { power_plant } from "@/assets/images";
 import { useLogin } from "@/utils/hooks/tanstack-query/auth-query";
 import { Account } from "@/utils/models/auth";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
     const [form] = Form.useForm();
-
+    const navigate = useNavigate();
     const { mutate: handleLogin, isPending } = useLogin();
     const loginUser = (values: Account) => {
         if (isPending) return
         handleLogin({ body: values })
     }
+
+    const login = () => {
+        navigate("/home");
+    };
 
     return (
         <div className={styles.loginWrapper}>
@@ -65,7 +70,7 @@ const LoginPage = () => {
                     </Form.Item>
 
                     <Form.Item>
-                        <Button
+                        {/* <Button
                             type="primary"
                             htmlType="submit"
                             block
@@ -73,9 +78,19 @@ const LoginPage = () => {
                             className={styles.loginBtn}
                         >
                             Login
-                        </Button>
+                        </Button> */}
                     </Form.Item>
                 </Form>
+                <Button
+                    type="primary"
+                    htmlType="submit"
+                    block
+                    size="large"
+                    className={styles.loginBtn}
+                    onClick={login}
+                >
+                    Login
+                </Button>
             </div>
         </div>
     );

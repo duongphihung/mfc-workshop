@@ -14,8 +14,8 @@ type MachineInfo = {
 };
 
 const MOCK_MACHINES: Record<string, MachineInfo> = {
-    "SN:6500A-512150636674": {
-        id: "SN:6500A-512150636674",
+    "8935206026306": {
+        id: "8935206026306",
         name: "Máy Ép Nhựa A01",
         department: "Xưởng Nhựa",
         image: "https://via.placeholder.com/120x80",
@@ -29,7 +29,7 @@ const MachineStep = () => {
         const machine = MOCK_MACHINES[barcode];
 
         if (!machine) {
-            message.error("Không tìm thấy máy");
+            message.error("Mã: " + barcode + " không tìm thấy" );
             return;
         }
 

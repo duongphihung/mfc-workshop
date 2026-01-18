@@ -11,12 +11,12 @@ export default function DomRouter() {
   return (
     <Routes>
       <Route path="/" element={<LoginPage />} />
-      <Route element={<PrivateRouter />}>
+      {/* <Route element={<PrivateRouter />}> */}
         <Route path={urlKeys.HOME_URL_KEY} element={<HomePage />}></Route>
         <Route path={urlKeys.CHECK_IN_URL_KEY} element={<CheckinPage />}></Route>
         <Route path={urlKeys.CHECK_OUT_URL_KEY} element={<CheckoutPage />}></Route>
         <Route path={urlKeys.RECEIVE_MATERIAL_URL_KEY} element={<ReceiveMaterialPage />}></Route>
-      </Route>
+      {/* </Route> */}
     </Routes>
   )
 }

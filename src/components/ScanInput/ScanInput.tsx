@@ -2,7 +2,7 @@ import { Input } from "antd";
 import { useEffect, useRef, useState } from "react";
 import type { InputRef } from "antd";
 import { LuScanLine } from "react-icons/lu";
-import CameraScanModal from "./CameraScanModal/CameraScanModal";
+import CameraScanner from "./CameraScanner/CameraScanner";
 
 type ScanInputProps = {
     placeholder?: string;
@@ -58,11 +58,12 @@ const ScanInput = ({
                 }
             />
 
-            <CameraScanModal
+            <CameraScanner
                 open={openCamera}
                 onClose={() => setOpenCamera(false)}
                 onScanSuccess={(code) => {
                     handleSubmit(code);
+                    setOpenCamera(false);
                 }}
             />
         </>
