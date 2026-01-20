@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "../CheckinPageDesktop.module.scss";
-import { Button, Input, Table, TableProps } from "antd";
+import { Button, DatePicker, Input, Table, TableProps } from "antd";
 
 const ComfirmProcessStep = () => {
     const [selectionType, setSelectionType] = useState<'checkbox' | 'radio'>('checkbox');
@@ -87,7 +87,14 @@ const ComfirmProcessStep = () => {
             <div className={styles.section}>
                 <div className={styles.titleHeader}>
                     <div className={styles.titleCommon}>DANH SÁCH CÔNG ĐOẠN</div>
-                    <Button>Đã chọn</Button>
+                    <div className={styles.titleAction}>
+                        <Button
+                            onClick={() => setSelectionType('checkbox')}
+                        >
+                            Đã chọn
+                        </Button>
+                        <DatePicker />
+                    </div>
                 </div>
                 <div className={styles.listCommon}>
                     <div className={styles.listContent}>

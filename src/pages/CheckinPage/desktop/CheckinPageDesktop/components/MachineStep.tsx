@@ -14,8 +14,8 @@ type MachineInfo = {
 };
 
 const MOCK_MACHINES: Record<string, MachineInfo> = {
-    "sn:6500a-512150636674": {
-        id: "sn:6500a-512150636674",
+    "WC-456-20260119080320": {
+        id: "WC-456-20260119080320",
         name: "Máy Ép Nhựa A01",
         department: "Xưởng Nhựa",
         image: "https://via.placeholder.com/120x80",
@@ -58,7 +58,6 @@ const MachineStep = () => {
                     <div className={styles.listContent}>
                         {machines.map((m) => (
                             <Card key={m.id} className={styles.machineCard}>
-                                <Image src={m.image} width={120} preview={false} />
                                 <div>
                                     <Text strong>{m.name}</Text>
                                     <br />

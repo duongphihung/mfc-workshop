@@ -14,9 +14,9 @@ const LoginPage = () => {
         handleLogin({ body: values })
     }
 
-    const login = () => {
-        navigate("/home");
-    };
+    // const login = () => {
+    //     navigate("/home");
+    // };
 
     return (
         <div className={styles.loginWrapper}>
@@ -70,7 +70,7 @@ const LoginPage = () => {
                     </Form.Item>
 
                     <Form.Item>
-                        {/* <Button
+                        <Button
                             type="primary"
                             htmlType="submit"
                             block
@@ -78,10 +78,10 @@ const LoginPage = () => {
                             className={styles.loginBtn}
                         >
                             Login
-                        </Button> */}
+                        </Button>
                     </Form.Item>
                 </Form>
-                <Button
+                {/* <Button
                     type="primary"
                     htmlType="submit"
                     block
@@ -90,7 +90,7 @@ const LoginPage = () => {
                     onClick={login}
                 >
                     Login
-                </Button>
+                </Button> */}
             </div>
         </div>
     );

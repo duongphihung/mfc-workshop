@@ -6,7 +6,7 @@ import { useCheckinStore } from "@/utils/store/checkinStore";
 const { Text } = Typography;
 
 const MOCK_EMPLOYEES: Record<string, any> = {
-    "123": {
+    "8936017363505": {
         id: "NV001",
         name: "Thanh Nhàn",
         position: "Công nhân",
