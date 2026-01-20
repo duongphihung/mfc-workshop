@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
     const [form] = Form.useForm();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const { mutate: handleLogin, isPending } = useLogin();
     const loginUser = (values: Account) => {
         if (isPending) return
