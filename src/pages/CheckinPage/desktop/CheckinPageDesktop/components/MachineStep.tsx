@@ -3,30 +3,29 @@ import { useState } from "react";
 import styles from "../CheckinPageDesktop.module.scss";
 import ScanInput from "@/components/ScanInput/ScanInput";
 import { useCheckinStore } from "@/utils/store/checkinStore";
+import { MachineInfo } from "@/utils/models/machine";
 
 const { Text } = Typography;
 
-type MachineInfo = {
-    id: string;
-    name: string;
-    department: string;
-    image: string;
-};
-
-const MOCK_MACHINES: Record<string, MachineInfo> = {
-    "WC-456-20260119080320": {
+const MACHINE_LIST: MachineInfo[] = [
+    {
         id: "WC-456-20260119080320",
         name: "Máy Ép Nhựa A01",
         department: "Xưởng Nhựa",
-        image: "https://via.placeholder.com/120x80",
     },
-};
+    {
+        id: "WC-789-20260119090000",
+        name: "Máy Ép Nhựa A02",
+        department: "Xưởng Nhựa",
+    },
+];
+
 
 const MachineStep = () => {
     const { machines, addMachine } = useCheckinStore();
 
     const handleScanMachine = (barcode: string) => {
-        const machine = MOCK_MACHINES[barcode];
+        const machine = MACHINE_LIST.find((m) => m.id === barcode.trim());
 
         if (!machine) {
             message.error("Mã: " + barcode + " không tìm thấy" );

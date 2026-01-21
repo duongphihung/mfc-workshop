@@ -69,6 +69,11 @@ const ComfirmProcessStep = () => {
             dataIndex: 'product_name',
             key: 'product_name',
         },
+        {
+            title: 'Nhu cầu',
+            dataIndex: '',
+            key: '',
+        },
     ];
 
     const rowSelection: TableProps<any>['rowSelection'] = {

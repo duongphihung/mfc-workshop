@@ -34,6 +34,7 @@ const ScanInput = ({
         setTimeout(() => inputRef.current?.focus(), 0);
     };
 
+
     return (
         <>
             <Input

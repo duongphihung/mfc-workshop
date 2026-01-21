@@ -55,7 +55,13 @@ const CheckoutConfirmProcess = () => {
             key: 'product_name',
         },
         {
-            title: 'Số lượng',
+            title: 'Nhu cầu',
+            dataIndex: 'quantity',
+            key: 'quantity',
+            render: (quantity: number) => (<div>100</div>),
+        },
+        {
+            title: 'Thực tế',
             dataIndex: 'quantity',
             key: 'quantity',
             render: (quantity: number) => (<InputNumber min={0} defaultValue={quantity} />),
